@@ -11,4 +11,12 @@
 |
 */
 
-$app->get('/', 'DatasController@index');
+$app->get('/', 'DatasController');
+
+$app->post('/create', 'DatasController@create');
+
+$app->get('/read/{id}', 'DatasController@read');
+
+$app->post('/update/{id}', 'DatasController@update');
+
+$app->get('/delete/{id}', 'DatasController@delete');

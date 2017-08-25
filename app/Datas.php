@@ -7,9 +7,17 @@ use Illuminate\Database\Eloquent\Model;
 
 class Datas extends Eloquent {
 
-   // protected $connection = 'mongodb'; 
-    //protected $collection = 'post';
+    //protected $connection = 'mongodb'; 
+
+    //nama tabel
     protected $collection = 'coba';
+
+    //disable timestamps
     public $timestamps = false;
+
+    //To make all fields fillable, 
+    protected $guarded = array();
+
+
 
 }
