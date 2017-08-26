@@ -15,15 +15,21 @@ class DatasController extends Controller
      */
     public function __invoke()
     {
-        $users = Datas::all();
-        return $users;
+         $datas = Datas::paginate(5);
+        return view('show')->with('datas',$datas);
     }
 
     public function Create(Request $request)
     {
         $requestData = $request->all();        
         Datas::create($requestData);
-        return 'Done';
+        return redirect('/');
+    }
+
+    public function ReadAll()
+    {
+        $datas = Datas::all();
+        return $datas;
     }
 
     public function Read($id)
@@ -32,18 +38,18 @@ class DatasController extends Controller
         return $data;
     }
 
-    public function Update(Request $request, $id)
-    {
-        $requestData = $request->all();        
-        $data = Datas::findOrFail($id);
+    public function Update(Request $request)
+    {        
+        $requestData = $request->all();     
+        $data = Datas::findOrFail($request->id_update);
         $data->update($requestData);
-        return 'done';
+        return redirect('/');
     }
 
-    public function Delete($id)
+    public function Delete(Request $request)
     {
-        Datas::destroy($id);
-        return 'done';
+        Datas::destroy($request->id_delete);
+        return redirect('/');
     }
 
 }

@@ -12,11 +12,10 @@
 */
 
 $app->get('/', 'DatasController');
-
 $app->post('/create', 'DatasController@create');
-
+$app->get('/read-all', 'DatasController@readAll');
 $app->get('/read/{id}', 'DatasController@read');
+$app->put('/update', 'DatasController@update');
+$app->delete('/delete', 'DatasController@delete');
 
-$app->post('/update/{id}', 'DatasController@update');
 
-$app->get('/delete/{id}', 'DatasController@delete');

@@ -10,7 +10,7 @@ class Datas extends Eloquent {
     //protected $connection = 'mongodb'; 
 
     //nama tabel
-    protected $collection = 'coba';
+    protected $collection = 'users';
 
     //disable timestamps
     public $timestamps = false;
